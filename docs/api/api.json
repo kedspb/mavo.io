@@ -1,9 +1,8 @@
 {
 	"mavoClass": [
 		{
-			"name": "Mavo",
+			"name": "knkowkp",
 			"description": "`Mavo` is the main class. Every Mavo app is an instance of `Mavo` and `mavo.js` is the entry point of Mavo itself.",
-			"filename": "mavo.js",
 			"member": [
 				{
 					"static": false,
@@ -15,12 +14,9 @@
 							"optional": false
 						}
 					],
-					"role": "constructor",
-					"name": "new Mavo"
+					"role": "constructor"
 				},
 				{
-					"name": "treeBuilt",
-					"type": "Promise",
 					"static": false,
 					"description": "Promise that resolves when the Mavo tree has been built.",
 					"argument": [
@@ -31,8 +27,6 @@
 					"role": "property"
 				},
 				{
-					"name": "dataLoaded",
-					"type": "Promise",
 					"static": false,
 					"role": "property",
 					"description": "Data has been loaded (if any). Similar to the `mv-load` event.",
@@ -43,9 +37,7 @@
 					]
 				},
 				{
-					"name": "element",
 					"role": "property",
-					"type": "Element",
 					"static": false,
 					"description": "The Mavo root element. Same element that was passed to the constructor.",
 					"argument": [
@@ -55,8 +47,6 @@
 					]
 				},
 				{
-					"name": "root",
-					"type": "Mavo.Group",
 					"static": false,
 					"role": "property",
 					"description": "Root Mavo node (always a group).",
@@ -67,8 +57,6 @@
 					]
 				},
 				{
-					"name": "index",
-					"type": "Number",
 					"static": false,
 					"role": "property",
 					"description": "Index among other mavos in the page, 1 is first",
@@ -79,8 +67,6 @@
 					]
 				},
 				{
-					"name": "id",
-					"type": "String",
 					"static": false,
 					"role": "property",
 					"description": "Unique id for this Mavo app. This usually comes from the `mv-app` attribute. However, if there are duplicate ids in `mv-app`, then a number is appended. If `mv-app` is empty, then the id is generated from by concatenating string \"mavo\" and the app's [index](#Mavo#index)",
@@ -91,9 +77,7 @@
 					]
 				},
 				{
-					"name": "inProgress",
 					"role": "accessor",
-					"type": "String",
 					"static": false,
 					"description": "Name of event that is currently in progress (e.g. `\"Loading\"`, `\"Saving\"` etc), if any, `false` otherwise. Setting this triggers the progress indicator UI.",
 					"argument": [
@@ -103,8 +87,6 @@
 					]
 				},
 				{
-					"name": "locale",
-					"type": "Mavo.Locale",
 					"static": false,
 					"role": "property",
 					"description": "The locale for this Mavo app, depending on any `lang` attribute defined either on the app or an ancestor. If none is found, the default is English.",
@@ -115,8 +97,6 @@
 					]
 				},
 				{
-					"name": "autoEdit",
-					"type": "Boolean",
 					"static": false,
 					"role": "property",
 					"description": "Should this Mavo start in edit mode? Corresponds to the `mv-autoedit` class.",
@@ -127,8 +107,6 @@
 					]
 				},
 				{
-					"name": "autoSave",
-					"type": "Boolean",
 					"static": false,
 					"role": "property",
 					"description": "Should we save automatically? Corresponds to whether the `mv-autosave` attribute is present.",
@@ -139,8 +117,6 @@
 					]
 				},
 				{
-					"name": "autoSaveDelay",
-					"type": "Number",
 					"static": false,
 					"role": "property",
 					"description": "Throttle delay for autosaving. Taken from the value of `mv-autosave`, defaults to 0s if none.",
@@ -151,8 +127,6 @@
 					]
 				},
 				{
-					"name": "expressions",
-					"type": "Mavo.Expressions",
 					"static": false,
 					"role": "property",
 					"description": "[Mavo.Expressions](#Mavo.Expressions) object corresponding to this instance.",
@@ -163,8 +137,6 @@
 					]
 				},
 				{
-					"name": "permissions",
-					"type": "Mavo.Permissions",
 					"static": false,
 					"role": "property",
 					"description": "[Mavo.Permissions](#Mavo.Permissions) object that corresponds to the permissions in this Mavo (taken from its backend(s)). In the future, individual Mavo nodes may have their own permissions, but right now permissions are app-wide.",
@@ -175,8 +147,6 @@
 					]
 				},
 				{
-					"name": "bar",
-					"type": "Mavo.UI.Bar",
 					"static": false,
 					"role": "property",
 					"description": "[Mavo.UI.Bar](#Mavo.UI.Bar) object that corresponds to the Mavo toolbar for this app.",
@@ -187,8 +157,6 @@
 					]
 				},
 				{
-					"name": "needsEdit",
-					"type": "Boolean",
 					"static": false,
 					"role": "property",
 					"description": "True if there is any property that may require an edit button (e.g. forms do not), false otherwise.",
@@ -199,7 +167,6 @@
 					]
 				},
 				{
-					"name": "getData",
 					"type": "Object",
 					"static": false,
 					"role": "function",
@@ -211,23 +178,16 @@
 							"description": "Configuration object. For details see [Mavo.Node#getData()](Mavo.Node#getData)",
 							"optional": false
 						}
-					],
-					"returnType": "Object",
-					"returnDescription": "Data of entire Mavo app"
+					]
 				},
 				{
-					"name": "toJSON",
 					"type": "String",
 					"static": false,
 					"role": "function",
 					"description": "Serializes all current data as JSON",
-					"argument": [],
-					"returnType": "String",
-					"returnDescription": "The current data as a JSON string"
+					"argument": []
 				},
 				{
-					"name": "all",
-					"type": "Object",
 					"static": true,
 					"role": "property",
 					"description": "Object with all Mavo instances that are currently active on the page. These can be accessed by index, e.g. `Mavo.all[0]` or by name, like `Mavo.all.appid`.",
@@ -1805,37 +1765,29 @@
 					"description": "Looks for `property` in `data`'s descendants (including itself), then in the descendants of each ancestor of `data` in turn, until the property is found.",
 					"argument": [
 						{
-							"name": "property",
 							"optional": false,
-							"type": "String",
 							"description": "Property name to look for."
 						},
 						{
-							"name": "data",
 							"optional": false,
 							"description": "Data object to start looking in."
 						}
 					]
 				},
 				{
-					"name": "find",
 					"static": true,
 					"role": "function",
 					"description": "Looks for `property` in `data`'s descendants (including itself).",
 					"argument": [
 						{
-							"name": "property",
 							"optional": false,
-							"type": "String",
 							"description": "Property name to look for."
 						},
 						{
-							"name": "data",
 							"optional": false,
 							"description": "Data object to start looking in."
 						},
 						{
-							"name": "options",
 							"optional": true,
 							"description": "Object of options. If the key `exclude` is provided, a direct child data object that is identical to `options.exclude` is skipped."
 						}
